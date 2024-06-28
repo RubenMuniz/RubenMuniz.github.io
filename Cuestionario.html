@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Cultura General de la Fórmula 1</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #f5deb3; /* Color crema para el borde */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #333;
+        }
+        .question {
+            margin-bottom: 15px;
+            text-align: left;
+            border-bottom: 2px solid #f5deb3; /* Borde inferior crema */
+            padding-bottom: 15px; /* Espaciado inferior para separar las preguntas */
+        }
+        .question label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            display: none;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .progress-bar div {
+            height: 20px;
+            background-color: #4caf50;
+            width: 0;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            border: 2px solid #45a049; /* Borde verde */
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cuestionario de Cultura General de la Fórmula 1</h1>
+    <form id="quizForm">
+        <div class="question">
+            <label>1. ¿Quién ha ganado más campeonatos mundiales de Fórmula 1?</label>
+            <input type="radio" name="q1" value="correct"> Michael Schumacher<br>
+            <input type="radio" name="q1" value="wrong"> Ayrton Senna<br>
+            <input type="radio" name="q1" value="wrong"> Lewis Hamilton<br>
+        </div>
+        <div class="question">
+            <label>2. ¿En qué año se celebró la primera carrera de Fórmula 1?</label>
+            <input type="radio" name="q2" value="wrong"> 1948<br>
+            <input type="radio" name="q2" value="correct"> 1950<br>
+            <input type="radio" name="q2" value="wrong"> 1952<br>
+        </div>
+        <div class="question">
+            <label>3. ¿Cuál es el circuito más largo del calendario de Fórmula 1?</label>
+            <input type="radio" name="q3" value="correct"> Circuito de Spa-Francorchamps<br>
+            <input type="radio" name="q3" value="wrong"> Circuito de Mónaco<br>
+            <input type="radio" name="q3" value="wrong"> Circuito de Silverstone<br>
+        </div>
+        <div class="question">
+            <label>4. ¿Cuál es el equipo con más títulos de constructores?</label>
+            <input type="radio" name="q4" value="wrong"> McLaren<br>
+            <input type="radio" name="q4" value="correct"> Ferrari<br>
+            <input type="radio" name="q4" value="wrong"> Red Bull Racing<br>
+        </div>
+        <div class="question">
+            <label>5. ¿Quién fue el primer campeón mundial de Fórmula 1?</label>
+            <input type="radio" name="q5" value="correct"> Giuseppe Farina<br>
+            <input type="radio" name="q5" value="wrong"> Juan Manuel Fangio<br>
+            <input type="radio" name="q5" value="wrong"> Alberto Ascari<br>
+        </div>
+        <div class="question">
+            <label>6. ¿Cuál es el Gran Premio más antiguo que todavía se celebra?</label>
+            <input type="radio" name="q6" value="wrong"> Gran Premio de Mónaco<br>
+            <input type="radio" name="q6" value="wrong"> Gran Premio de Gran Bretaña<br>
+            <input type="radio" name="q6" value="correct"> Gran Premio de Italia<br>
+        </div>
+        <div class="question">
+            <label>7. ¿Cuál fue el primer equipo en ganar un campeonato de constructores?</label>
+            <input type="radio" name="q7" value="wrong"> Ferrari<br>
+            <input type="radio" name="q7" value="wrong"> Mercedes<br>
+            <input type="radio" name="q7" value="correct"> Vanwall<br>
+        </div>
+        <div class="question">
+            <label>8. ¿Qué piloto tiene el récord de más poles consecutivas?</label>
+            <input type="radio" name="q8" value="wrong"> Ayrton Senna<br>
+            <input type="radio" name="q8" value="correct"> Sebastian Vettel<br>
+            <input type="radio" name="q8" value="wrong"> Lewis Hamilton<br>
+        </div>
+        <div class="question">
+            <label>9. ¿Cuál es el único piloto que ha ganado campeonatos de Fórmula 1 y MotoGP?</label>
+            <input type="radio" name="q9" value="correct"> John Surtees<br>
+            <input type="radio" name="q9" value="wrong"> Mike Hailwood<br>
+            <input type="radio" name="q9" value="wrong"> Giacomo Agostini<br>
+        </div>
+        <div class="question">
+            <label>10. ¿Qué equipo introdujo por primera vez el uso de motores turbo en la Fórmula 1?</label>
+            <input type="radio" name="q10" value="wrong"> Ferrari<br>
+            <input type="radio" name="q10" value="correct"> Renault<br>
+            <input type="radio" name="q10" value="wrong"> BMW<br>
+        </div>
+        <button type="button" onclick="checkAnswers()">Enviar</button>
+    </form>
+    <div class="progress-bar">
+        <div id="progress"></div>
+    </div>
+    <div class="result" id="result"></div>
+
+    <script>
+        function checkAnswers() {
+            const quizForm = document.getElementById('quizForm');
+            const resultDiv = document.getElementById('result');
+            const progressDiv = document.getElementById('progress');
+            const questions = quizForm.querySelectorAll('.question');
+            let totalQuestions = questions.length;
+            let correctAnswers = 0;
+
+            questions.forEach(question => {
+                const selectedAnswer = question.querySelector('input[type="radio"]:checked');
+                if (selectedAnswer && selectedAnswer.value === 'correct') {
+                    correctAnswers++;
+                }
+            });
+
+            resultDiv.textContent = `Respondidas correctamente: ${correctAnswers} de ${totalQuestions}`;
+            resultDiv.style.display = 'block';
+            
+            const progressPercent = (correctAnswers / totalQuestions) * 100;
+            progressDiv.style.width = progressPercent + '%';
+            progressDiv.textContent = Math.round(progressPercent) + '%';
+        }
+    </script>
+</body>
+</html>

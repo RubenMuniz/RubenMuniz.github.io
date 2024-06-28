@@ -1,0 +1,99 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: #f39c12;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    color: #e0e0e0;
+}
+
+.pilots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.pilot-card {
+    background-color: #1c1c1c;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+}
+
+.pilot-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+}
+
+.pilot-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.pilot-info {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pilot-info h3 {
+    margin: 0 0 10px 0;
+    color: #f39c12;
+}
+
+.pilot-info p {
+    margin: 0;
+    color: #a9a9a9;
+}
+
+.pilot-video {
+    width: 100%;
+    height: auto;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .pilots-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .pilots-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}

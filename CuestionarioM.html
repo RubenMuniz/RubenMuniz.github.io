@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Mecánica Básica de la Fórmula 1</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #f5deb3; /* Color crema para el borde */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #333;
+        }
+        .question {
+            margin-bottom: 15px;
+            text-align: left;
+            border-bottom: 2px solid #f5deb3; /* Borde inferior crema */
+            padding-bottom: 15px; /* Espaciado inferior para separar las preguntas */
+        }
+        .question label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            display: none;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .progress-bar div {
+            height: 20px;
+            background-color: #4caf50;
+            width: 0;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            border: 2px solid #45a049; /* Borde verde */
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cuestionario de Mecánica Básica de la Fórmula 1</h1>
+    <form id="quizForm">
+        <div class="question">
+            <label>1. ¿Qué tipo de motor utilizan los coches de Fórmula 1 actualmente?</label>
+            <input type="radio" name="q1" value="wrong"> V8<br>
+            <input type="radio" name="q1" value="correct"> V6 turbo híbrido<br>
+            <input type="radio" name="q1" value="wrong"> V10<br>
+        </div>
+        <div class="question">
+            <label>2. ¿Qué componente principal ayuda a generar carga aerodinámica en un coche de Fórmula 1?</label>
+            <input type="radio" name="q2" value="wrong"> Neumáticos<br>
+            <input type="radio" name="q2" value="correct"> Alerones<br>
+            <input type="radio" name="q2" value="wrong"> Motor<br>
+        </div>
+        <div class="question">
+            <label>3. ¿Qué material se utiliza principalmente en los frenos de los coches de Fórmula 1?</label>
+            <input type="radio" name="q3" value="correct"> Carbono<br>
+            <input type="radio" name="q3" value="wrong"> Acero<br>
+            <input type="radio" name="q3" value="wrong"> Aluminio<br>
+        </div>
+        <div class="question">
+            <label>4. ¿Qué empresa es actualmente el proveedor oficial de neumáticos para la Fórmula 1?</label>
+            <input type="radio" name="q4" value="wrong"> Bridgestone<br>
+            <input type="radio" name="q4" value="wrong"> Michelin<br>
+            <input type="radio" name="q4" value="correct"> Pirelli<br>
+        </div>
+        <div class="question">
+            <label>5. ¿Qué parte del coche se ajusta para mejorar el contacto de las ruedas con la pista?</label>
+            <input type="radio" name="q5" value="wrong"> Motor<br>
+            <input type="radio" name="q5" value="wrong"> Alerón trasero<br>
+            <input type="radio" name="q5" value="correct"> Suspensión<br>
+        </div>
+        <div class="question">
+            <label>6. ¿Qué sistema de recuperación de energía se usa en los coches de Fórmula 1?</label>
+            <input type="radio" name="q6" value="wrong"> ERS<br>
+            <input type="radio" name="q6" value="correct"> KERS<br>
+            <input type="radio" name="q6" value="wrong"> MGU-H<br>
+        </div>
+        <div class="question">
+            <label>7. ¿Cómo se llama el componente que mejora el flujo de aire bajo el coche?</label>
+            <input type="radio" name="q7" value="wrong"> Alerón delantero<br>
+            <input type="radio" name="q7" value="wrong"> Splitter<br>
+            <input type="radio" name="q7" value="correct"> Difusor<br>
+        </div>
+        <div class="question">
+            <label>8. ¿Qué tipo de suspensión es común en los coches de Fórmula 1?</label>
+            <input type="radio" name="q8" value="wrong"> MacPherson<br>
+            <input type="radio" name="q8" value="correct"> Multilink<br>
+            <input type="radio" name="q8" value="wrong"> Rígida<br>
+        </div>
+        <div class="question">
+            <label>9. ¿Qué función tiene el alerón trasero en un coche de Fórmula 1?</label>
+            <input type="radio" name="q9" value="wrong"> Reducir la velocidad<br>
+            <input type="radio" name="q9" value="correct"> Aumentar la carga aerodinámica<br>
+            <input type="radio" name="q9" value="wrong"> Enfriar los frenos<br>
+        </div>
+        <div class="question">
+            <label>10. ¿Qué material se usa principalmente en el chasis de un coche de Fórmula 1?</label>
+            <input type="radio" name="q10" value="correct"> Fibra de carbono<br>
+            <input type="radio" name="q10" value="wrong"> Acero<br>
+            <input type="radio" name="q10" value="wrong"> Titanio<br>
+        </div>
+        <button type="button" onclick="checkAnswers()">Enviar</button>
+    </form>
+    <div class="progress-bar">
+        <div id="progress"></div>
+    </div>
+    <div class="result" id="result"></div>
+
+    <script>
+        function checkAnswers() {
+            const quizForm = document.getElementById('quizForm');
+            const resultDiv = document.getElementById('result');
+            const progressDiv = document.getElementById('progress');
+            const questions = quizForm.querySelectorAll('.question');
+            let totalQuestions = questions.length;
+            let correctAnswers = 0;
+
+            questions.forEach(question => {
+                const selectedAnswer = question.querySelector('input[type="radio"]:checked');
+                if (selectedAnswer && selectedAnswer.value === 'correct') {
+                    correctAnswers++;
+                }
+            });
+
+            resultDiv.textContent = `Respondidas correctamente: ${correctAnswers} de ${totalQuestions}`;
+            resultDiv.style.display = 'block';
+            
+            const progressPercent = (correctAnswers / totalQuestions) * 100;
+            progressDiv.style.width = progressPercent + '%';
+            progressDiv.textContent = Math.round(progressPercent) + '%';
+        }
+    </script>
+</body>
+</html>

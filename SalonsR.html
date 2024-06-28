@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salón de los Recuerdos - Pilotos de F1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #f39c12;
+        }
+
+        .pilots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            justify-items: center;
+        }
+
+        .pilot-card {
+            background-color: #1c1c1c;
+            border-radius: 15px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 250px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pilot-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .pilot-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .pilot-info {
+            padding: 10px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pilot-info h3 {
+            margin: 0 0 5px 0;
+            color: #f39c12;
+            font-size: 1.1em;
+        }
+
+        .pilot-info p {
+            margin: 0;
+            color: #a9a9a9;
+            font-size: 0.9em;
+        }
+
+        .pilot-video {
+            display: none;
+            width: 100%;
+            height: auto;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .show-video {
+            display: block;
+        }
+
+        @media screen and (max-width: 768px) {
+            .pilots-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .pilots-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Salón de los Recuerdos - Lo Mejor de la F1
+        </h1>
+    </header>
+
+    <div class="container">
+        <div class="pilots-grid">
+
+            <div class="pilot-card" onmouseover="showVideo('video1')" onmouseout="hideVideo('video1')">
+                <img src="Img/lewham01.avif" alt="Carrera 1">
+                <div class="pilot-info">
+                    <h3>Lewis Hamilton </h3>
+                    <h3>McLaren
+                    </h3>
+                    <p> Gran Premio de Brasil 2012<br>
+                        Una carrera emocionante que vio a Hamilton superar a Sebastian Vettel en la última vuelta
+                        para ganar el campeonato mundial.
+                    </p>
+                    <video id="video1" class="pilot-video" controls>
+                        <source src="Videos/Y2meta.app-F1 2012 Lewis Hamilton Onboard Q3 in Brasil-(480p).mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="pilot-card" onmouseover="showVideo('video2')" onmouseout="hideVideo('video2')">
+                <img src="Img/2.jpg" alt="Carrera 2">
+                <div class="pilot-info">
+                    <h3>Peter Gethin</h3>
+                    <h3>BRM
+                    </h3>
+                    <p>Gran Premio de Italia 1971<br>
+                        Una carrera muy reñida que vio a Gethin ganar por solo 0,01 segundos, el margen de
+                        victoria más estrecho en la historia de la F1.
+
+                    </p>
+                    <video id="video2" class="pilot-video" controls>
+                        <source src="Videos/Y2meta.app - Peter Gethin wins the 1971 Italian GP-(480p).mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="pilot-card" onmouseover="showVideo('video3')" onmouseout="hideVideo('video3')">
+                <img src="Img/3.jpg" alt="Carrera 3">
+                <div class="pilot-info">
+                    <h3>Riccardo Patrese
+                    </h3>
+                    <h3>Brabham
+                    </h3>
+                    <p>Gran Premio de Europa 1999 (Nürburgring)<br>
+                        Una carrera caótica marcada por la lluvia y los accidentes, que vio a Patrese 
+                        ganar desde la pole
+                        position.
+                    </p>
+                    <video id="video3" class="pilot-video" controls>
+                        <source src="Videos/1999 European Grand Prix_ Race Highlights _ DHL F1 Classics.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="pilot-card" onmouseover="showVideo('video4')" onmouseout="hideVideo('video4')">
+                <img src="Img/4.jpg" alt="Carrera 4">
+                <div class="pilot-info">
+                    <h3>Johnny Herbert
+                    </h3>
+                    <h3>Stewart
+                    </h3>
+                    <p>Gran Premio de Europa 1999 (Nürburgring)<br>
+                        Una carrera memorable que vio a Herbert ganar desde la pole position y liderar 
+                        de principio a fin.
+
+                    </p>
+                    <video id="video4" class="pilot-video" controls>
+                        <source src="Videos/1999 European GP Review _4K 50FPS_.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="pilot-card" onmouseover="showVideo('video5')" onmouseout="hideVideo('video5')">
+                <img src="Img/5.jpg" alt="Carrera 5">
+                <div class="pilot-info">
+                    <h3>Damon Hill
+                    </h3>
+                    <h3> Jordan
+                    </h3>
+                    <p>Gran Premio de Bélgica 1998 (Spa-Francorchamps)<br>
+                        na carrera emocionante que vio a Hill ganar desde la pole position y
+                        liderar la mayor parte de la carrera.
+                    </p>
+                    <video id="video5" class="pilot-video" controls>
+                        <source src="Videos/videoplayback.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="pilot-card" onmouseover="showVideo('video6')" onmouseout="hideVideo('video6')">
+                <img src="Img/6.jpg" alt="Carrera 6">
+                <div class="pilot-info">
+                    <h3>Alain Prost
+                    </h3>
+                    <h3>McLaren
+                    </h3>
+                    <p>Gran Premio de Australia 1986 (Adelaïde)<br>
+                        Una carrera dominada por Prost, quien lideró de principio a fin y ganó por 
+                        más de un minuto.
+                    </p>
+                    <video id="video6" class="pilot-video" controls>
+                        <source src="Videos/Y2meta.app-GP F1 AUSTRALIE 1986-(144p).mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="pilot-card" onmouseover="showVideo('video7')" onmouseout="hideVideo('video7')">
+                <img src="Img/7.jpg" alt="Carrera 7">
+                <div class="pilot-info">
+                    <h3> Felipe Massa
+                    </h3>
+                    <h3>Ferrari
+                    </h3>
+                    <p>Gran Premio de Brasil 2008 (Interlagos)<br>
+                        Una carrera dramática que vio a Massa ganar desde la pole position,
+                         pero perder el campeonato mundial ante Lewis Hamilton en la última vuelta.
+                    </p>
+                    <video id="video7" class="pilot-video" controls>
+                        <source src="Videos/Y2meta.app-F1 INTERLAGOS 2008 last lap with family of massa and hamilton-(480p).mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="pilot-card" onmouseover="showVideo('video8')" onmouseout="hideVideo('video8')">
+                <img src="Img/8.jpg" alt="Carrera 8">
+                <div class="pilot-info">
+                    <h3> James Hunt
+                    </h3>
+                    <h3>McLaren
+                    </h3>
+                    <p> Gran Premio de Alemania 1976 (Nürburgring)<br>
+                        Una carrera épica que vio a Hunt ganar el campeonato mundial por un solo punto 
+                        sobre Niki Lauda.</p>
+                    <video id="video8" class="pilot-video" controls>
+                        <source src="Videos/Y2meta.app - Gran premio de Japon - 1976 - James Hunt Campeon.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="pilot-card" onmouseover="showVideo('video9')" onmouseout="hideVideo('video9')">
+                <img src="Img/9.jpg" alt="Carrera 9">
+                <div class="pilot-info">
+                    <h3>Ayrton Senna
+                    </h3>
+                    <h3>McLaren
+                    </h3>
+                    <p>Gran Premio de Japón 1990 (Suzuka)<br>
+                        Una carrera memorable que vio a Senna ganar desde la pole position y liderar 
+                        de principio a fin.</p>
+                    <video id="video9" class="pilot-video" controls>
+                        <source src="Videos/Y2meta.app - F1 1991 Suzuka Race [60fps HQ] Ayrton Senna wins his last title _ McLaren MP4_6 .mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="pilot-card" onmouseover="showVideo('video10')" onmouseout="hideVideo('video10')">
+                <img src="Img/10.jpg" alt="Carrera 10">
+                <div class="pilot-info">
+                    <h3> Rubens Barrichello
+                    </h3>
+                    <h3> Ferrari
+                    </h3>
+                    <p>Gran Premio de Gran Bretaña 2003 (Silverstone)<br>
+                        Una carrera emocionante que vio a Barrichello ganar desde la pole position y liderar la mayor
+                         parte de la carrera.</p>
+                    <video id="video10" class="pilot-video" controls>
+                        <source src="Videos/Y2meta.app - GP Inglaterra 2003 - Pole de Rubens Barrichello.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script>
+        function showVideo(id) {
+            document.getElementById(id).classList.add('show-video');
+        }
+
+        function hideVideo(id) {
+            document.getElementById(id).classList.remove('show-video');
+        }
+    </script>
+
+</body>
+
+</html>
