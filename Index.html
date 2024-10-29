@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasado Perfecto Continuo - Autocompletar Oraciones</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2980b9;
+        }
+
+        #game-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            border: 2px solid #2980b9;
+        }
+
+        p, h2, h3 {
+            color: #333333;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1em;
+            width: 80%; /* Cambiado de 60% a 80% para mejor uso del espacio */
+            max-width: 300px; /* Añadido un ancho máximo */
+            margin-bottom: 10px;
+            border: 2px solid #2980b9;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #219653;
+        }
+
+        .result {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .correct {
+            color: #27ae60;
+        }
+
+        .incorrect {
+            color: #e74c3c;
+        }
+
+        #hint {
+            margin-top: 10px;
+            color: #2980b9;
+            cursor: pointer;
+            font-size: 1.1em;
+            text-decoration: underline;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #2980b9;
+        }
+
+        th {
+            background-color: #2980b9;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #d0e9f7;
+        }
+
+        .animation {
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        #examples {
+            margin-bottom: 20px;
+        }
+
+        /* Media queries para pantallas pequeñas */
+        @media (max-width: 600px) {
+            input[type="text"] {
+                width: 90%; /* Usar más espacio en móviles */
+            }
+
+            button {
+                width: 100%; /* Botones de ancho completo en móviles */
+                padding: 15px; /* Aumentar el tamaño del botón */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Autocompleta Oraciones en Pasado Perfecto Continuo</h1>
+    
+    <div id="game-container" class="animation">
+        <h2>¿Qué es el Pasado Perfecto Continuo?</h2>
+        <p>El pasado perfecto continuo se utiliza para expresar una acción que había estado ocurriendo antes de otra acción en el pasado. La estructura es:</p>
+        <p><strong>had been + verbo en gerundio (verbo + ing)</strong></p>
+        <p>Este tiempo verbal se emplea para mostrar la duración de una actividad que ya estaba en progreso antes de un momento específico en el pasado. Por ejemplo, cuando decimos "She had been studying for three hours when the exam started," estamos indicando que la acción de estudiar comenzó antes del inicio del examen y continuó hasta ese momento.</p>
+        <p>El pasado perfecto continuo también se utiliza para mostrar que una acción había estado ocurriendo de manera continua hasta un punto determinado en el pasado. Esto ayuda a dar contexto sobre las circunstancias que llevaron a la acción final que ocurrió después.</p>
+
+        <h3>Ejemplos:</h3>
+        <div id="examples">
+            <ul>
+                <li>She <strong>had been studying</strong> for three hours when the exam started.</li>
+                <li>They <strong>had been playing</strong> soccer before it started to rain.</li>
+                <li>I <strong>had been working</strong> on the project all week.</li>
+            </ul>
+        </div>
+
+        <h3>Clasificación de Jugadores</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Posición</th>
+                    <th>Nombre</th>
+                    <th>Puntos</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboard">
+                <!-- Los jugadores se añadirán aquí dinámicamente -->
+            </tbody>
+        </table>
+
+        <h3>Ingresa tu nombre:</h3>
+        <input type="text" id="player-name" placeholder="Nombre del jugador">
+        <br><br>
+
+        <p id="sentence" class="animation"></p>
+
+        <input type="text" id="user-input" placeholder="Completa la oración">
+        <br>
+        <button onclick="checkAnswer()">Verificar Respuesta</button>
+        <button onclick="nextSentence()">Siguiente Oración</button>
+
+        <p id="result" class="result"></p>
+        <p id="hint" onclick="showHint()">Pedir Pista</p>
+    </div>
+
+    <script>
+        const sentences = [
+            "When I arrived, they had been working on the project for hours.",
+            "She was tired because she had been running all morning.",
+            "By the time the teacher arrived, we had been studying for the test.",
+            "They had been living in London for three years before moving to Paris.",
+            "I had been waiting for the bus for half an hour when it finally arrived.",
+            "She had been looking for her keys for an hour before finding them.",
+            "The children had been playing in the park all day.",
+            "He had been repairing the car for two hours before I arrived.",
+            "They had been traveling around the world for six months when they decided to settle down.",
+            "We had been waiting at the restaurant for thirty minutes before getting a table.",
+            "She had been learning French for five years before moving to France.",
+            "I had been watching TV for an hour when the power went out.",
+            "They had been building the house for six months before the storm hit.",
+            "He had been training for the marathon for weeks.",
+            "I had been cooking dinner for an hour when the phone rang.",
+            "She had been working on the project for two hours when her boss called.",
+            "We had been cleaning the house all morning.",
+            "The cat had been sleeping on the couch for hours when the dog barked.",
+            "I had been reading the book for days before finishing it.",
+            "They had been planning the party for weeks when they heard the news.",
+            "She had been writing the report for three hours before the computer crashed.",
+            "We had been talking for an hour when we realized the time.",
+            "They had been preparing for the meeting all day.",
+            "He had been studying at the library for hours before going home.",
+            "We had been driving for three hours when the car broke down.",
+            "I had been painting the room for two hours when I ran out of paint.",
+            "They had been dancing at the party for hours.",
+            "She had been teaching at the school for years before retiring.",
+            "We had been discussing the project for an hour when the client called.",
+            "He had been waiting for the train for twenty minutos before it arrived.",
+            "She had been singing on stage for half an hora when the microphone stopped working.",
+            "They had been searching for the treasure for days.",
+            "I had been walking for two hours when it started to rain.",
+            "She had been shopping for clothes all afternoon.",
+            "They had been talking about the new movie for hours.",
+            "We had been exercising at the gym for an hour before leaving.",
+            "She had been cleaning the kitchen for an hour when I arrived.",
+            "They had been exploring the cave for hours.",
+            "We had been waiting for the concert to start for forty minutes.",
+            "He had been swimming in the pool for thirty minutes when the lifeguard stopped him.",
+            "I had been drawing for hours when I finally finished my painting.",
+            "They had been fishing at the lake for hours before catching a fish.",
+            "He had been fixing the bicycle for an hour when it started to rain."
+        ];
+
+        let currentSentenceIndex = 0;
+        let playerName = '';
+
+        function nextSentence() {
+            currentSentenceIndex = Math.floor(Math.random() * sentences.length);
+            document.getElementById('user-input').value = '';
+            document.getElementById('result').innerText = '';
+            document.getElementById('sentence').innerText = sentences[currentSentenceIndex];
+        }
+
+        function checkAnswer() {
+            const userInput = document.getElementById('user-input').value.trim();
+            const sentenceParts = sentences[currentSentenceIndex].split("had been").map(part => part.trim());
+            const correctAnswer = sentenceParts[1].replace(/[.]/g, '').trim(); // Obtener la parte después de "had been"
+
+            if (userInput.toLowerCase() === correctAnswer.toLowerCase()) {
+                document.getElementById('result').innerHTML = `<span class="correct">¡Correcto!</span>`;
+            } else {
+                document.getElementById('result').innerHTML = `<span class="incorrect">Incorrecto. La respuesta correcta es: <strong>${correctAnswer}</strong></span>`;
+            }
+        }
+
+        function showHint() {
+            alert("Pista: Recuerda que el pasado perfecto continuo se forma con 'had been' seguido de un verbo en gerundio.");
+        }
+
+        document.getElementById('player-name').addEventListener('input', function () {
+            playerName = this.value;
+            updateLeaderboard();
+        });
+
+        function updateLeaderboard() {
+            const leaderboard = document.getElementById('leaderboard');
+            leaderboard.innerHTML = '';
+            const row = `<tr>
+                <td>1</td>
+                <td>${playerName || 'Jugador'}</td>
+                <td>0</td> <!-- Puedes cambiar esto para reflejar puntos reales -->
+            </tr>`;
+            leaderboard.innerHTML += row;
+        }
+
+        // Inicializa el juego
+        nextSentence();
+    </script>
+</body>
+</html>
